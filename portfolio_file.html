@@ -1,0 +1,882 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chimme Joshnasri | Cyber Security Portfolio</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --secondary: #a78bfa;
+      --dark: #0b1020;
+      --card: #141b30;
+      --text: #e8eaf6;
+      --muted: #a6afc8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .navbar {
+      background: rgba(11, 16, 32, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .navbar-brand {
+      color: #c4b5fd !important;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .nav-link {
+      color: #d1d5e8 !important;
+      font-size: 14px;
+      margin-left: 15px;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #c4b5fd !important;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 120px 0 80px;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(124,58,237,0.20), transparent 35%),
+        radial-gradient(circle at 15% 80%, rgba(59,130,246,0.12), transparent 30%);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 9px 18px;
+      border: 1px solid rgba(167,139,250,0.45);
+      border-radius: 50px;
+      background: rgba(124,58,237,0.10);
+      color: #c4b5fd;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+      max-width: 600px;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, #7c3aed, #5b5bd6);
+      color: white;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 9px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-3px);
+      color: white;
+      box-shadow: 0 10px 30px rgba(124,58,237,0.3);
+    }
+
+    .btn-outline {
+      border: 1px solid #7c3aed;
+      color: #c4b5fd;
+      padding: 12px 25px;
+      border-radius: 9px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: #7c3aed;
+      color: white;
+    }
+
+    .profile-box {
+      width: min(330px, 85%);
+      aspect-ratio: 1;
+      margin: auto;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      padding: 4px;
+      box-shadow: 0 0 80px rgba(124,58,237,0.22);
+    }
+
+    .profile-inner {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      background: #141b30;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .profile-inner i {
+      font-size: 90px;
+      color: #a78bfa;
+    }
+
+    .profile-inner h4 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-top: 15px;
+    }
+
+    .profile-inner span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 95px 0;
+      scroll-margin-top: 75px;
+    }
+
+    .section-label {
+      color: #a78bfa;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      line-height: 1.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .about-card,
+    .project-card,
+    .skill-card,
+    .education-card,
+    .contact-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 18px;
+      padding: 28px;
+      height: 100%;
+      transition: 0.3s;
+    }
+
+    .about-card:hover,
+    .project-card:hover,
+    .skill-card:hover,
+    .education-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(167,139,250,0.5);
+    }
+
+    .about-card p,
+    .project-card p,
+    .education-card p,
+    .contact-card p {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+      align-items: flex-start;
+    }
+
+    .info-item i {
+      color: #a78bfa;
+      font-size: 20px;
+    }
+
+    .info-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .project-icon {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 15px;
+      background: rgba(124,58,237,0.15);
+      color: #c4b5fd;
+      font-size: 27px;
+      margin-bottom: 22px;
+    }
+
+    .project-card h4 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      color: #c4b5fd;
+      background: rgba(124,58,237,0.15);
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-size: 11px;
+      margin: 4px 4px 4px 0;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #c4b5fd;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .project-link:hover {
+      color: white;
+    }
+
+    .skill-card {
+      text-align: center;
+      padding: 24px 15px;
+    }
+
+    .skill-card i {
+      color: #a78bfa;
+      font-size: 35px;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .skill-card h6 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .education-card {
+      border-left: 4px solid #7c3aed;
+    }
+
+    .education-card h4 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .education-card .year {
+      color: #a78bfa;
+      font-size: 13px;
+      margin: 10px 0;
+    }
+
+    .contact-card {
+      text-align: center;
+      padding: 40px 25px;
+    }
+
+    .contact-card i {
+      color: #a78bfa;
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      width: 43px;
+      height: 43px;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(167,139,250,0.4);
+      border-radius: 50%;
+      color: #c4b5fd;
+      margin: 20px 6px 0;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      background: #7c3aed;
+      color: white;
+      transform: translateY(-4px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #backToTop {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      background: #7c3aed;
+      display: none;
+      z-index: 999;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        background: #11182b;
+        padding: 15px;
+        border-radius: 12px;
+        margin-top: 10px;
+      }
+
+      .nav-link {
+        margin: 8px 0;
+      }
+
+      .hero {
+        text-align: center;
+        padding-top: 125px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .profile-box {
+        margin-top: 50px;
+        width: 260px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      section {
+        padding: 70px 0;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .about-card,
+      .project-card,
+      .education-card {
+        padding: 23px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">JOSHNAsri<span class="gradient-text">.</span></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="tag">
+            <i class="bi bi-shield-lock-fill me-2"></i>
+            Cyber Security Student
+          </span>
+
+          <h1>
+            Hi, I'm<br>
+            <span class="gradient-text">Chimme Joshnasri</span>
+          </h1>
+
+          <p>
+            A Cyber Security student at Sir C R Reddy College of Engineering,
+            passionate about technology, cybersecurity, and building creative
+            digital projects. I enjoy learning new skills and turning ideas
+            into practical projects.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 mt-4 justify-content-center justify-content-lg-start">
+            <a href="#projects" class="btn btn-main">
+              Explore My Projects <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              Contact Me
+            </a>
+          </div>
+
+          <div class="social-links">
+            <!-- Replace # with your actual profile links -->
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="profile-box">
+            <div class="profile-inner">
+              <i class="bi bi-shield-lock"></i>
+              <h4>CYBER SECURITY</h4>
+              <span>Learn • Build • Secure</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="section-label">Get to know me</div>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        <p class="section-desc">
+          A little introduction about my education, interests, and goals.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-7 reveal">
+          <div class="about-card">
+            <h4 class="fw-bold mb-3">Hello! I'm Joshnasri 👋</h4>
+            <p>
+              I am a Cyber Security student at Sir C R Reddy College of
+              Engineering. I am interested in exploring the world of
+              cybersecurity, programming, and web development.
+            </p>
+            <p>
+              I believe in learning by doing. Through personal projects and
+              hackathon participation, I aim to improve my technical skills,
+              creativity, and problem-solving abilities.
+            </p>
+            <p class="mb-0">
+              My goal is to keep learning, build useful projects, and grow
+              into a skilled technology professional.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-5 reveal">
+          <div class="about-card">
+            <h5 class="fw-bold mb-4">Personal Details</h5>
+
+            <div class="info-item">
+              <i class="bi bi-person-circle"></i>
+              <div><strong>Name</strong><br><span>Chimme Joshnasri</span></div>
+            </div>
+
+            <div class="info-item">
+              <i class="bi bi-mortarboard"></i>
+              <div><strong>College</strong><br><span>Sir C R Reddy College of Engineering</span></div>
+            </div>
+
+            <div class="info-item">
+              <i class="bi bi-shield-check"></i>
+              <div><strong>Department</strong><br><span>Cyber Security</span></div>
+            </div>
+
+            <div class="info-item mb-0">
+              <i class="bi bi-code-slash"></i>
+              <div><strong>Interests</strong><br><span>Cybersecurity, Web Development, Technology</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="background: rgba(255,255,255,0.015);">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="section-label">What I work with</div>
+        <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+        <p class="section-desc">
+          Technologies and areas I am learning and exploring.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="bi bi-shield-lock"></i>
+            <h6>Cyber Security</h6>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="bi bi-filetype-html"></i>
+            <h6>HTML</h6>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="bi bi-filetype-css"></i>
+            <h6>CSS</h6>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="bi bi-filetype-js"></i>
+            <h6>JavaScript</h6>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="bi bi-bootstrap"></i>
+            <h6>Bootstrap</h6>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="bi bi-terminal"></i>
+            <h6>Programming</h6>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="bi bi-lightbulb"></i>
+            <h6>Problem Solving</h6>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 reveal">
+          <div class="skill-card">
+            <i class="bi bi-people"></i>
+            <h6>Teamwork</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="section-label">What I've been working on</div>
+        <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+        <p class="section-desc">
+          A collection of my creative work and project experiences.
+        </p>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Birthday Project -->
+        <div class="col-lg-6 reveal">
+          <div class="project-card">
+            <div class="project-icon">
+              <i class="bi bi-gift"></i>
+            </div>
+
+            <h4>Birthday Wishes Website</h4>
+
+            <p>
+              A colorful and interactive birthday greeting website designed
+              to make special occasions memorable. It features a festive
+              interface with birthday wishes, decorations, and interactive
+              animations.
+            </p>
+
+            <div class="mb-3">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">Responsive Design</span>
+            </div>
+
+            <!-- Add your project link below -->
+            <a href="#" class="project-link">
+              View Project <i class="bi bi-arrow-up-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- SIH Hackathon -->
+        <div class="col-lg-6 reveal">
+          <div class="project-card">
+            <div class="project-icon">
+              <i class="bi bi-lightning-charge"></i>
+            </div>
+
+            <h4>Smart India Hackathon (SIH)</h4>
+
+            <p>
+              A hackathon project experience focused on collaborative
+              problem-solving, innovation, and developing technology-based
+              solutions to real-world challenges.
+              Add your specific problem statement, solution, and role here.
+            </p>
+
+            <div class="mb-3">
+              <span class="project-tag">Hackathon</span>
+              <span class="project-tag">Innovation</span>
+              <span class="project-tag">Teamwork</span>
+              <span class="project-tag">Problem Solving</span>
+            </div>
+
+            <!-- Add your SIH project details or link below -->
+            <a href="#contact" class="project-link">
+              Know More <i class="bi bi-arrow-up-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="background: rgba(255,255,255,0.015);">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="section-label">My academic journey</div>
+        <h2 class="section-title">My <span class="gradient-text">Education</span></h2>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8 reveal">
+          <div class="education-card">
+            <div class="d-flex align-items-start gap-3">
+              <div class="project-icon flex-shrink-0">
+                <i class="bi bi-mortarboard"></i>
+              </div>
+
+              <div>
+                <h4>Sir C R Reddy College of Engineering</h4>
+                <div class="year">Engineering | Cyber Security</div>
+                <p class="mb-0">
+                  Pursuing engineering studies with an interest in
+                  cybersecurity, technology, and software development.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="section-label">Let's connect</div>
+        <h2 class="section-title">Contact <span class="gradient-text">Me</span></h2>
+        <p class="section-desc">
+          Feel free to connect with me for collaborations, projects,
+          and learning opportunities.
+        </p>
+      </div>
+
+      <div class="row justify-content-center g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="contact-card">
+            <i class="bi bi-envelope"></i>
+            <h5 class="fw-bold">Email</h5>
+            <p>Add your email address to make it easy to reach you.</p>
+
+            <!-- Replace with your actual email -->
+            <a href="mailto:yourname@example.com" class="btn btn-main mt-2">
+              Send Email
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="contact-card">
+            <i class="bi bi-linkedin"></i>
+            <h5 class="fw-bold">LinkedIn</h5>
+            <p>Connect with me and explore my professional profile.</p>
+
+            <!-- Replace # with your LinkedIn profile URL -->
+            <a href="#" class="btn btn-main mt-2">
+              Connect With Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p class="mb-2">
+        Designed & Built by <span class="gradient-text fw-bold">Chimme Joshnasri</span>
+      </p>
+      <p class="mb-0">© <span id="year"></span> All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Automatically update the copyright year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Close mobile navbar after clicking a navigation link
+    document.querySelectorAll(".navbar .nav-link").forEach(function(link) {
+      link.addEventListener("click", function() {
+        const navbar = document.getElementById("navbarNav");
+        const bsCollapse = bootstrap.Collapse.getInstance(navbar);
+
+        if (bsCollapse) {
+          bsCollapse.hide();
+        }
+      });
+    });
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(function(element) {
+        observer.observe(element);
+      });
+    } else {
+      revealElements.forEach(function(element) {
+        element.classList.add("active");
+      });
+    }
+
+    // Back to top button
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", function() {
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    backToTop.addEventListener("click", function() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+</body>
+</html>
